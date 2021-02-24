@@ -7,7 +7,7 @@ node ('GOI'){
     }
 
     stage('postbuild'){
-        archive 'game-of-life-web/target/*.war'
+        archiveArtifacts 'game-of-life-web/target/*.war'
     }
     
 }
