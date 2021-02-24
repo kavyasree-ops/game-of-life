@@ -1,19 +1,19 @@
 pipeline{
     agent {label 'GOI'}
-    stages{
-        stage('SCM'){
-                        steps{
+    stages {
+        stage('SCM') {
+                        steps {
                                 git 'https://github.com/kavyasree-ops/game-of-life.git'
                                 }
                 stage('build') {
-                         steps{
+                         steps {
                         sh script: 'mvn clean package'
                              }
                 
             }
             stage('postbuild')
             {
-               steps{'archiveArtifacts game-of-life-web/target/*.war'
+               steps {'archiveArtifacts game-of-life-web/target/*.war'
                }
             }
             
